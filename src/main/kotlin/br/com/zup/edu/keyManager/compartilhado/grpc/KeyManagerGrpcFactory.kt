@@ -1,6 +1,7 @@
 package br.com.zup.edu.keyManager.compartilhado.grpc
 
 import br.com.zup.edu.KeyManagerBuscaServiceGrpc
+import br.com.zup.edu.KeyManagerListaServiceGrpc
 import br.com.zup.edu.KeyManagerRemoveServiceGrpc
 import br.com.zup.edu.KeyManagerServiceGrpc
 import io.grpc.ManagedChannel
@@ -19,4 +20,7 @@ class KeyManagerGrpcFactory(@GrpcChannel("keyManager") val channel: ManagedChann
 
     @Singleton
     fun buscaChavePix() = KeyManagerBuscaServiceGrpc.newBlockingStub(channel)
+
+    @Singleton
+    fun listaChavesPix() = KeyManagerListaServiceGrpc.newBlockingStub(channel)
 }
